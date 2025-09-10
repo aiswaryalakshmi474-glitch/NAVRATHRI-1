@@ -1,1 +1,43 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><link rel="icon" href="./favicon.png"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#000000"/><meta name="description" content="WebAR built with MindAR Studio"/><link rel="apple-touch-icon" href="./favicon.png"/><link rel="manifest" href="./manifest.json"/><title>MindAR App</title><script defer="defer" src="./static/js/main.1573730f.js"></script><link href="./static/css/main.43335a5b.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div></body></html>
+<!doctype html> <html> <head> <meta charset="utf-8"> <title>Face Filter (Animated)</title> <meta name="viewport" content="width=device-width, initial-scale=1"><!-- 1) Engines -->
+<!-- A‑Frame (3D) -->
+<script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+<!-- MindAR (Face tracking) -->
+<script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-face-aframe.prod.js"></script>
+
+<!-- 2) Simple page styles (optional) -->
+<style>
+  html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; background: #000; }
+  .note { position: fixed; top: 8px; left: 8px; color: #fff; font: 14px/1.4 system-ui, sans-serif; opacity: 0.85; }
+  .note b { color: #ffd54f; }
+</style>
+</head> <body> <!-- Small helper text (you can delete this) --> <div class="note"> Edit only: <b>pink2 rotating.glb</b> path below. Pinches to resize: change <b>scale</b> numbers. Change face spot: <b>anchorIndex</b>. </div><!-- 3) Face tracking scene -->
+<a-scene
+  mindar-face
+  vr-mode-ui="enabled: false"
+  device-orientation-permission-ui="enabled: false">
+
+  <!-- 4) Assets: put your model file name here -->
+  <!-- Place your GLB next to index.html and name it pink2 rotating.glb (or change the src). -->
+  <a-assets>
+    <a-asset-item id="model" src="./pink2 rotating.glb"></a-asset-item>
+  </a-assets>
+
+  <!-- 5) Camera -->
+  <a-camera position="0 0 0"></a-camera>
+
+  <!-- 6) Face anchor (where the model sticks) -->
+  <!-- 168 ≈ forehead. Try 152 for nose tip, 10 left cheek, 6 chin, etc. -->
+  <a-entity mindar-face-target="anchorIndex: 168">
+
+    <!-- 7) Your animated model -->
+    <!-- animation-mixer = auto-plays GLB animation (e.g., rotation clip). -->
+    <!-- Tweak scale/position to fit the face. -->
+    <a-entity
+      gltf-model="#model"
+      animation-mixer
+      position="0 0 0"
+      scale="1 1 1">
+    </a-entity>
+
+  </a-entity>
+</a-scene></body> </html>
