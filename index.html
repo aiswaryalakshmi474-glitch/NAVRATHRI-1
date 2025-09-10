@@ -1,1 +1,53 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><link rel="icon" href="./favicon.png"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#000000"/><meta name="description" content="WebAR built with MindAR Studio"/><link rel="apple-touch-icon" href="./favicon.png"/><link rel="manifest" href="./manifest.json"/><title>MindAR App</title><script defer="defer" src="./static/js/main.1573730f.js"></script><link href="./static/css/main.43335a5b.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div></body></html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <link rel="icon" href="./favicon.png"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
+    <meta name="description" content="WebAR built with MindAR Studio"/>
+    <link rel="apple-touch-icon" href="./favicon.png"/>
+    <link rel="manifest" href="./manifest.json"/>
+    <title>MindAR App</title>
+    <script defer="defer" src="./static/js/main.1573730f.js"></script>
+    <link href="./static/css/main.43335a5b.css" rel="stylesheet">
+    
+    <!-- Only addition: 3 navigation circles -->
+    <style>
+      .nav-circles {
+        position: fixed;
+        top: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 12px;
+        z-index: 9999;
+      }
+      .circle {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: block;
+        border: 2px solid rgba(255,255,255,0.9);
+        box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      }
+      .circle:active { transform: translateY(1px); }
+      .pink  { background: #ff69b4; }
+      .red   { background: #ff4444; }
+      .blue  { background: #4488ff; }
+      .nav-circles a { text-decoration: none; }
+    </style>
+  </head>
+  <body>
+    <!-- 3 navigation circles -->
+    <div class="nav-circles">
+      <a href="https://aish-navarathri.netlify.app/" aria-label="Pink Filter"><span class="circle pink"></span></a>
+      <a href="https://aishredframe.netlify.app/" aria-label="Red Filter"><span class="circle red"></span></a>
+      <a href="https://aishblueframe.netlify.app/" aria-label="Blue Filter"><span class="circle blue"></span></a>
+    </div>
+
+    <!-- Original app (unchanged) -->
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+  </body>
+</html>
